@@ -13,11 +13,11 @@ class Bookmark
   def self.all 
     result = @@connection.exec('SELECT * FROM bookmarks')
     result.map do |bookmark|
-      bookmark["url"]
+      bookmark["title"]
     end
   end
 
-  def self.add(bookmark)
-    @@connection.exec("INSERT INTO bookmarks(url) VALUES('#{bookmark}');")
+  def self.add(title, bookmark)
+    @@connection.exec("INSERT INTO bookmarks(title, url) VALUES('#{title}', '#{bookmark}');")
   end
 end
