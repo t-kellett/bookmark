@@ -13,7 +13,7 @@ class Bookmark
   def self.all 
     result = @@connection.exec('SELECT * FROM bookmarks')
     result.map do |bookmark|
-      bookmark["title"]
+      bookmark
     end
   end
 

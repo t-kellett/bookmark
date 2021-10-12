@@ -11,8 +11,8 @@ describe Bookmark do
 
     bookmarks = Bookmark.all
 
-    expect(bookmarks).to include('Makers Academy')
-    expect(bookmarks).to include('Destroy Software')
-    expect(bookmarks).to include('Google')
+    expect(bookmarks).to include({"id"=>"1", "title"=>"Makers Academy", "url"=>"http://www.makersacademy.com"})
+    expect(bookmarks).to include({"id"=>"2", "title"=>"Destroy Software", "url"=>"http://www.destroyallsoftware.com"})
+    expect(bookmarks).to include({"id"=>"3", "title"=>"Google", "url"=>"http://www.google.com"})
   end
 end
