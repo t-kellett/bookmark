@@ -1,13 +1,12 @@
-class Bookmark
-  @@bookmarks = [] 
+require 'pg'
 
-  def initialize 
-    @@bookmarks << self
-  end
+class Bookmark
 
   def self.all 
-    @@bookmarks.each do |bookmark|
-      bookmark
+    connection = PG.connect(dbname: 'bookmark_manager')
+    result = connection.exec('SELECT * FROM bookmarks')
+    result.map do |bookmark|
+      bookmark["url"]
     end
   end
 end
