@@ -9,11 +9,21 @@ Tag bookmarks into categories
 Filter bookmarks by tag
 Users are restricted to manage only their own bookmarks
 
+```
 As an internet user
 So that I can browse previously saved pages
 I want to see a list of bookmarks
+```
 
-![DOmain Model](./Model.jpg?raw=true "Bookmarker Domain")
+```
+As someone who is pressed for time
+So that I can easily remember my favourite websites
+I want to add a bookmark to my bookmarks
+```
+
+
+
+![Domain Model](./Model.jpg?raw=true "Bookmarker Domain")
 
 ## Set up
 In order to run this application you will need to set up the database, to do this, follow these instructions:
