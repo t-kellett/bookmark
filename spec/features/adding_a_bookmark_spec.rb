@@ -1,6 +1,6 @@
 feature "Adding bookmarks" do
   scenario "Add facebook.com" do
-    visit ('/')
+    visit ('/bookmarks')
     click_button "Add"
     fill_in :title, with: "Facebook"
     fill_in :url, with: "https://www.facebook.com/"
