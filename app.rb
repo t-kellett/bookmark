@@ -9,15 +9,17 @@ class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
 
-  delete '/bookmarks/:id' do
-    Bookmark.delete(id: params[:id])
+  get '/' do
+    redirect '/bookmarks'
+  end
+
+  get '/bookmark/' do
     redirect '/bookmarks'
   end
 
   get '/bookmarks' do
-    # list of existing bookmarks
-    # add a bookmark
-    erb :bookmarks 
+    @bookmarks = Bookmark.all
+    erb :index
   end
 
   get '/bookmark-form' do
@@ -28,6 +30,26 @@ class BookmarkManager < Sinatra::Base
     Bookmark.create(title: params[:title], url: params[:url])
     redirect('/bookmarks')
   end
+
+  delete '/bookmark/:id' do
+    Bookmark.delete(id: params[:id])
+    redirect '/bookmarks'
+  end
+
+  get '/bookmark/:id' do
+    Bookmark.delete(id: params[:id])
+    redirect '/bookmarks'
+  end
+
+  get '/bookmark/:id/edit' do
+    @bookmark = Bookmark.find(id: params[:id])
+    erb :'bookmark/edit'
+  end
+
+  patch '/bookmark/:id' do
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
+    redirect '/bookmarks'
+  end 
 
   run! if app_file == $0
 end
