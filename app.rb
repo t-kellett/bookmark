@@ -6,11 +6,7 @@ class BookmarkManager < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
-  before do 
-    Bookmark.create
-  end
-
+  
   get '/' do
     # list of existing bookmarks
     # add a bookmark
@@ -22,7 +18,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add-bookmark' do
-    Bookmark.add(params[:title], params[:url])
+    Bookmark.create(title: params[:title], url: params[:url])
     redirect('/')
   end
 

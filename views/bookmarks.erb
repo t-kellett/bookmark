@@ -1,8 +1,12 @@
-<%Bookmark.all.each do | bookmark | %>
-  <a href=<%= bookmark["url"] %>>
-    <h1> <%= bookmark["title"] %> </h1>
-  </a>
-<% end %>
+<ul>
+  <% Bookmark.all.each do |bookmark| %>
+    <li>
+      <a href="<%= bookmark.url %>">
+        <%= bookmark.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>
 <body>
   <form action="/bookmark-form">
     <input type="submit" value="Add">
